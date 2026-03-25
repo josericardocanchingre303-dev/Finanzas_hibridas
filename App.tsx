@@ -11,7 +11,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ModalPortal } from './components/ModalPortal';
 import { Footer } from './components/Footer';
 import { AdSpace } from './components/AdSpace';
-import { CookieConsent } from './components/CookieConsent';
+import { CookieConsent } from './context/CookieConsent';
 import { CategoriasPage } from './data/paginas/categorias';
 import { NotFound } from './pages/NotFound';
 
