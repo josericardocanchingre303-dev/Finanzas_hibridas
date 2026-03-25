@@ -1,8 +1,8 @@
 import React from 'react';
-import { articulos } from '../articulos';
+import { articulos } from '../data/articulos';
 import { Helmet } from 'react-helmet-async';
 
-export const CategoriasPage: React.FC<{ categoria?: string }> = ({ categoria }) => {
+export const CategoriesPage: React.FC<{ categoria?: string }> = ({ categoria }) => {
   const categories = Array.from(new Set(articulos.map(a => a.category)));
   
   const filteredArticles = categoria 

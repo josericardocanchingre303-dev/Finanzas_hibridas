@@ -32,8 +32,8 @@ import { articulo as habitosExitosos } from './habitos-financieros-personas-exit
 import { articulo as erroresComunes } from './errores-financieros-comunes-como-evitarlos';
 import { articulo as mentalidadAbundancia } from './mentalidad-abundancia-vs-escasez-finanzas';
 import { articulo as planPasoAPaso } from './plan-financiero-personal-paso-a-paso';
-import { PoliticaPrivacidad } from '../paginas/politica-privacidad';
-import { AvisoLegal } from '../paginas/aviso-legal';
+import { PoliticaPrivacidad } from '../../pages/PoliticaPrivacidad';
+import { AvisoLegal } from '../../pages/AvisoLegal';
 
 const mapNewArticle = (art: any) => {
   const isTrad = art.categoria === "Inversiones tradicionales";
@@ -69,7 +69,7 @@ const mapNewArticle = (art: any) => {
     imageUrl: `https://images.unsplash.com/photo-${getImageUrl(art.slug)}`,
     category: art.categoria.toUpperCase(),
     categoryColor: isTrad ? "bg-blue-600" : isCripto ? "bg-amber-500" : isEdu ? "bg-purple-600" : "bg-emerald-600",
-    author: art.autor,
+    author: art.author || art.autor,
     authorRole: "Especialista en Finanzas Híbridas",
     date: art.fechaPublicacion,
     title: art.titulo,
@@ -120,7 +120,7 @@ export const articulos = [
     metaDescription: 'Política de Privacidad de Finanzas Híbridas. Información sobre el tratamiento de datos personales.',
     level: 'LEGAL',
     time: '5 MIN',
-    content: <PoliticaPrivacidad />
+    content: React.createElement(PoliticaPrivacidad)
   },
   {
     id: 'aviso-legal',
@@ -135,11 +135,10 @@ export const articulos = [
     metaDescription: 'Aviso Legal de Finanzas Híbridas. Información legal y descargo de responsabilidad.',
     level: 'LEGAL',
     time: '5 MIN',
-    content: <AvisoLegal />
+    content: React.createElement(AvisoLegal)
   }
 ];
 
-// Exportamos también como objeto para mantener compatibilidad si es necesario
 export const ARTICLES_DATA = articulos.reduce((acc, art) => {
   const { id, ...data } = art;
   acc[id] = data;
