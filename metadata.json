@@ -1,0 +1,8 @@
+{
+  "name": "FinanzasHíbridas",
+  "description": "A high-end financial intelligence platform blending traditional finance with cryptoassets, featuring AI-powered market analysis.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
